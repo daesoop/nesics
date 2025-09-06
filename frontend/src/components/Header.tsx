@@ -41,9 +41,13 @@ export default function Header({ currentPage = 'main' }: HeaderProps) {
                 alt="NES Solution Logo"
                 width={160}
                 height={80}
-                className="h-16 w-auto"
+                className="h-16 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+                onClick={handleHome}
               />
-              <div className="text-xl font-bold text-gray-800">
+              <div 
+                className="text-xl font-bold text-gray-800 cursor-pointer hover:text-blue-600 transition-colors"
+                onClick={handleHome}
+              >
                 통합관제시스템
               </div>
             </div>
