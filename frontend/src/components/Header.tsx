@@ -26,8 +26,7 @@ export default function Header({ currentPage = 'main' }: HeaderProps) {
   };
 
   const handleDevice = () => {
-    console.log('Device clicked');
-    // Device 페이지로 이동하거나 드롭다운 메뉴 표시
+    router.push('/device');
   };
 
   return (
@@ -52,13 +51,17 @@ export default function Header({ currentPage = 'main' }: HeaderProps) {
             {/* Separator */}
             <div className="w-px h-6 bg-gray-300"></div>
             
-            {/* Device Menu Text */}
-            <span 
-              onClick={handleDevice}
-              className="text-xl font-bold text-gray-800 cursor-pointer hover:text-blue-600 transition-colors"
-            >
-              Device
-            </span>
+                   {/* Device Menu Text */}
+                   <span
+                     onClick={handleDevice}
+                     className={`text-xl font-bold cursor-pointer transition-colors ${
+                       currentPage === 'device'
+                         ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                         : 'text-gray-800 hover:text-blue-600'
+                     }`}
+                   >
+                     Device
+                   </span>
           </div>
 
           {/* Right - Navigation Menu */}
