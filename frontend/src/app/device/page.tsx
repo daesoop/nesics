@@ -369,7 +369,7 @@ export default function DevicePage() {
                       수집
                     </th>
                     <th className="border border-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">
-                      실시 데이터 보기
+                      센서 데이터 보기
                     </th>
                   </tr>
                 </thead>
@@ -415,7 +415,12 @@ export default function DevicePage() {
                         </div>
                       </td>
                       <td className="border border-gray-300 px-4 py-3 text-sm">
-                        <button className="text-blue-600 hover:text-blue-800 underline">
+                        <button
+                          onClick={() =>
+                            router.push(`/device/detail?id=${device.id}`)
+                          }
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
                           [보기]
                         </button>
                       </td>
