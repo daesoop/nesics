@@ -3,8 +3,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function MainPage() {
+  const router = useRouter();
+
   const notices = [
     {
       id: 1,
@@ -19,6 +22,14 @@ export default function MainPage() {
       content: "시스템 업데이트가 예정되어 있습니다.",
     },
   ];
+
+  const handleMoreNotices = () => {
+    router.push("/notice");
+  };
+
+  const handleNoticeClick = (noticeId: number) => {
+    router.push(`/notice?id=${noticeId}`);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex flex-col">
@@ -69,7 +80,10 @@ export default function MainPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">공지사항</h3>
               </div>
-              <button className="text-base text-blue-600 hover:text-blue-700 font-medium">
+              <button
+                onClick={handleMoreNotices}
+                className="text-base text-blue-600 hover:text-blue-700 font-medium transition-colors"
+              >
                 더보기 →
               </button>
             </div>
@@ -81,7 +95,10 @@ export default function MainPage() {
                   className="border-b border-gray-100 pb-6 last:border-b-0 last:pb-0"
                 >
                   <div className="flex justify-between items-start mb-3">
-                    <h4 className="text-lg text-gray-800 font-semibold hover:text-blue-600 cursor-pointer transition-colors">
+                    <h4
+                      className="text-lg text-gray-800 font-semibold hover:text-blue-600 cursor-pointer transition-colors"
+                      onClick={() => handleNoticeClick(notice.id)}
+                    >
                       {notice.title}
                     </h4>
                     <span className="text-sm text-gray-500 whitespace-nowrap ml-4">
