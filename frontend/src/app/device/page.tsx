@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,8 @@ interface DeviceData {
 }
 
 export default function DevicePage() {
+  const router = useRouter();
+
   // 디바이스 데이터
   const [devices] = useState<DeviceData[]>([
     {
@@ -136,8 +139,7 @@ export default function DevicePage() {
   };
 
   const handleRegister = () => {
-    console.log("Register clicked");
-    alert("디바이스 등록 페이지로 이동합니다.");
+    router.push("/device/register");
   };
 
   const getStatusColor = (status: string) => {
