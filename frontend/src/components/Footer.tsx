@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const router = useRouter();
 
   const handleLogoClick = () => {
-    router.push('/main');
+    router.push("/main");
   };
   return (
-    <footer className="bg-white/95 backdrop-blur-sm border-t border-gray-200 mt-12">
+    <footer className="bg-white/95 backdrop-blur-sm border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-6">
@@ -22,7 +22,7 @@ export default function Footer() {
               className="h-16 w-auto opacity-70 cursor-pointer hover:opacity-90 transition-opacity"
               onClick={handleLogoClick}
             />
-            <div 
+            <div
               className="text-gray-600 cursor-pointer hover:text-blue-600 transition-colors"
               onClick={handleLogoClick}
             >

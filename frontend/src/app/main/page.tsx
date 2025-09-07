@@ -1,31 +1,31 @@
-'use client';
+"use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Image from 'next/image';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function MainPage() {
   const notices = [
     {
       id: 1,
-      title: '주요 공지사항입니다.',
-      date: '2025.09.03',
-      content: '중요한 공지사항 내용입니다.'
+      title: "주요 공지사항입니다.",
+      date: "2025.09.03",
+      content: "중요한 공지사항 내용입니다.",
     },
     {
       id: 2,
-      title: '시스템 업데이트 안내',
-      date: '2025.09.01',
-      content: '시스템 업데이트가 예정되어 있습니다.'
-    }
+      title: "시스템 업데이트 안내",
+      date: "2025.09.01",
+      content: "시스템 업데이트가 예정되어 있습니다.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex flex-col">
       <Header currentPage="main" />
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Hero Section with Main Image */}
         <div className="mb-12">
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden">
@@ -47,7 +47,8 @@ export default function MainPage() {
                       통합관제시스템
                     </h2>
                     <p className="text-lg text-gray-200 leading-relaxed">
-                      첨단 기술로 구현된 지능형 통합관제시스템으로<br />
+                      첨단 기술로 구현된 지능형 통합관제시스템으로
+                      <br />
                       안전하고 효율적인 관제 서비스를 제공합니다.
                     </p>
                   </div>
@@ -72,7 +73,7 @@ export default function MainPage() {
                 더보기 →
               </button>
             </div>
-            
+
             <div className="space-y-6">
               {notices.map((notice) => (
                 <div
@@ -87,9 +88,7 @@ export default function MainPage() {
                       {notice.date}
                     </span>
                   </div>
-                  <p className="text-gray-600">
-                    {notice.content}
-                  </p>
+                  <p className="text-gray-600">{notice.content}</p>
                 </div>
               ))}
             </div>
