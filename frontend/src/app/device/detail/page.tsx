@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,7 +19,7 @@ interface RealtimeData {
   펌프: boolean;
 }
 
-export default function DeviceDetailPage() {
+function DeviceDetailPageContent() {
   const searchParams = useSearchParams();
   const deviceId = searchParams.get("id") || "NB-001";
 
@@ -450,5 +450,19 @@ export default function DeviceDetailPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function DeviceDetailPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+        </div>
+      }
+    >
+      <DeviceDetailPageContent />
+    </Suspense>
   );
 }
